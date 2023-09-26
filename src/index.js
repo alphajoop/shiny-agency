@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
-import Survey from './pages/Survey/Survey';
+import Survey from './pages/Survey';
 import Header from './components/Header';
 import Error from './components/Error';
 import Results from './pages/Results';
