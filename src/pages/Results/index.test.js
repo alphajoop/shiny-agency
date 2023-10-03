@@ -4,7 +4,7 @@ import { setupServer } from 'msw/node';
 import { waitForElementToBeRemoved, screen } from '@testing-library/react';
 import { render } from '../../utils/test';
 
-describe('The getJobTitle function', () => {
+describe('The formatJobList function', () => {
   it('should add a comma to a word', () => {
     const expectedState = 'item2,';
     expect(formatJobList('item2', 3, 1)).toEqual(expectedState);
@@ -49,7 +49,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe('The Results component', () => {
-  test('should display the results after the data is loaded', async () => {
+  it('should display the results after the data is loaded', async () => {
     render(<Results />);
     // eslint-disable-next-line testing-library/prefer-query-by-disappearance
     await waitForElementToBeRemoved(() => screen.getByTestId('loader'));
