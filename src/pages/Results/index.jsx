@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import { useFetch, useTheme } from '../../utils/hooks';
 import { Loader, StyledLink } from '../../utils/style/Atoms';
+import EmptyList from '../../components/EmptyList';
 
 const ResultsContainer = styled.div`
   display: flex;
@@ -73,10 +74,10 @@ export function formatJobList(title, listLength, index) {
 function Results() {
   const { theme } = useTheme();
   const { answers } = useContext(SurveyContext);
-  const fetchParams = formatQueryParams(answers);
+  const queryParams = formatQueryParams(answers);
 
   const { data, isLoading, error } = useFetch(
-    `https://api-shiny-agency.vercel.app/results?${fetchParams}`,
+    `https://api-shiny-agency.vercel.app/results?${queryParams}`,
   );
 
   if (error) {
@@ -84,6 +85,10 @@ function Results() {
   }
 
   const resultsData = data?.resultsData;
+
+  if (resultsData?.length < 1) {
+    return <EmptyList theme={theme} />;
+  }
 
   return isLoading ? (
     <LoaderWrapper>
