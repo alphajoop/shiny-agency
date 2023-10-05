@@ -6,20 +6,30 @@ import { useEffect, useState } from 'react';
 
 const ProfileWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 90px 0;
-  margin: 0 90px;
-  background-color: ${({ theme }) =>
-    theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
+  padding: 30px 0;
+  margin: 0 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 60px 0;
+    margin: 0 90px;
+  }
 `;
 
 const ProfileDetails = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 0;
+  margin-top: 20px;
   color: ${({ theme }) => (theme === 'light' ? colors.dark : 'white')};
+
+  @media (min-width: 768px) {
+    margin-left: 50px;
+    margin-top: 0;
+  }
 `;
 
 const Picture = styled.img`
@@ -32,6 +42,12 @@ const Title = styled.h1`
   font-size: 25px;
   margin: 0;
   font-weight: 500;
+  padding-top: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+    padding-top: 0;
+  }
 `;
 
 const JobTitle = styled.h2`
@@ -55,13 +71,21 @@ const TitleWrapper = styled.div`
 const Price = styled.span`
   padding-top: 10px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const SkillsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px 0;
+
+  @media (min-width: 768px) {
+    padding: 20px 0;
+  }
 `;
 
 const Skill = styled.span`
@@ -70,6 +94,11 @@ const Skill = styled.span`
   margin-right: 5px;
   border: 1px solid
     ${({ theme }) => (theme === 'light' ? colors.dark : 'white')};
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Availability = styled.span`
@@ -85,6 +114,11 @@ const Availability = styled.span`
   }
   padding-left: 20px;
   position: relative;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 function Profile() {

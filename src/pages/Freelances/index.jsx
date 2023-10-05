@@ -8,16 +8,22 @@ import { Link } from 'react-router-dom';
 const CardsContainer = styled.div`
   display: grid;
   gap: 24px;
-  grid-template-rows: 350px 350px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr; /* Utilisation d'une colonne unique pour les petits écrans */
   align-items: center;
   justify-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Utilisation de deux colonnes pour les écrans plus larges */
+  }
 `;
 
 const PageTitle = styled.h1`
   font-size: 30px;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px; /* Ajustement de l'espacement */
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `;
 
@@ -26,7 +32,7 @@ const PageSubtitle = styled.h2`
   color: ${colors.secondary};
   font-weight: 300;
   text-align: center;
-  padding-bottom: 30px;
+  margin-bottom: 20px; /* Ajustement de l'espacement */
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `;
 

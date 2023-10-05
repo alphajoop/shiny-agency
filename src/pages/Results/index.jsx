@@ -10,41 +10,59 @@ const ResultsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 60px 90px;
-  padding: 30px;
+  margin: 30px 20px;
+  padding: 15px;
   background-color: ${({ theme }) =>
     theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
+
+  @media (min-width: 768px) {
+    max-width: 800px;
+    margin: 60px auto;
+  }
 `;
 
 const ResultsTitle = styled.h2`
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
   font-weight: bold;
-  font-size: 28px;
-  max-width: 60%;
+  font-size: 24px;
+  max-width: 80%;
   text-align: center;
-  & > span {
-    padding-left: 10px;
+  padding-bottom: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
   }
 `;
 
 const DescriptionWrapper = styled.div`
-  padding: 60px;
+  padding: 30px;
+
+  @media (min-width: 768px) {
+    padding: 60px;
+  }
 `;
 
 const JobTitle = styled.span`
   color: ${({ theme }) =>
     theme === 'light' ? colors.primary : colors.backgroundLight};
   text-transform: capitalize;
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const JobDescription = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   & > p {
     color: ${({ theme }) => (theme === 'light' ? colors.secondary : '#ffffff')};
     margin-block-start: 5px;
-  }
-  & > span {
-    font-size: 20px;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
   }
 `;
 

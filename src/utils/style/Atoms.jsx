@@ -28,6 +28,15 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   text-align: center;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+
   ${(props) =>
     props.$isFullLink &&
     `color: white; 

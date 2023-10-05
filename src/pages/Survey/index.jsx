@@ -11,6 +11,11 @@ const SurveyContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px; /* Ajustez le padding */
+
+  @media (min-width: 768px) {
+    padding: 40px; /* Ajustez le padding pour les écrans plus larges */
+  }
 `;
 
 const QuestionTitle = styled.h2`
@@ -26,39 +31,65 @@ const QuestionContent = styled.span`
 
 const LinkWrapper = styled.div`
   padding-top: 30px;
+
   & a {
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+    margin-right: 12px;
   }
-  & a:first-of-type {
-    margin-right: 20px;
+
+  & a:last-child {
+    margin-right: 0;
+  }
+
+  @media (min-width: 768px) {
+    display: flex; /* Afficher en ligne sur les écrans plus larges */
+
+    & a:first-of-type {
+      margin-right: 20px;
+    }
   }
 `;
 
 const ReplyBox = styled.button`
   border: none;
-  height: 100px;
-  width: 300px;
+  height: 50px; /* Ajuster la hauteur */
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 0 20px; /* Ajouter un peu de rembourrage */
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) =>
     theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
-  border-radius: 30px;
+  border-radius: 15px; /* Arrondir les coins */
   cursor: pointer;
   box-shadow: ${(props) =>
     props.$isSelected ? `0px 0px 0px 2px ${colors.primary} inset` : 'none'};
-  &:first-child {
-    margin-right: 15px;
-  }
-  &:last-of-type {
-    margin-left: 15px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0; /* Réinitialiser la marge pour les écrans plus larges */
+    width: auto; /* Ajuster la largeur automatiquement sur les écrans plus larges */
   }
 `;
 
 const ReplyWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Par défaut : affichage en colonne */
+
+  @media (min-width: 768px) {
+    flex-direction: row; /* Sur les écrans plus larges, affichage en ligne */
+
+    /* Ajouter une marge au deuxième ReplyBox */
+    & > :first-child {
+      margin-right: 15px;
+    }
+
+    /* Ajouter une marge au premier ReplyBox */
+    & > :last-child {
+      margin-left: 15px;
+    }
+  }
 `;
 
 function Survey() {

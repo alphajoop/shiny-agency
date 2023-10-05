@@ -13,10 +13,14 @@ const HomerContainer = styled.div`
   margin: 30px;
   background-color: ${({ theme }) =>
     theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
-  padding: 60px 90px;
+  padding: 60px 30px; /* Adjust padding for smaller screens */
   display: flex;
-  flex-direction: row;
-  max-width: 1200px;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 60px 90px;
+  }
 `;
 
 const LeftCol = styled.div`
@@ -30,6 +34,7 @@ const LeftCol = styled.div`
 `;
 
 const StyledTitle = styled.h2`
+  overflow: hidden;
   padding-bottom: 30px;
   max-width: 280px;
   line-height: 50px;
@@ -38,6 +43,7 @@ const StyledTitle = styled.h2`
 
 const Illustration = styled.img`
   flex: 1;
+  max-width: 100%;
 `;
 
 function Home() {
