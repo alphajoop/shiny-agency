@@ -4,6 +4,7 @@ import { useTheme } from '../hooks';
 const StyledGlobalStyle = createGlobalStyle`
     * {
       font-family: 'Trebuchet MS', Helvetica, sans-serif;
+      overflow-x: hidden;
     }
 
     a {

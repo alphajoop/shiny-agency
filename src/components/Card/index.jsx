@@ -16,9 +16,10 @@ const CardTitle = styled.div`
   font-size: 22px;
   font-weight: normal;
   align-self: center;
-  height: 25px;
+  height: auto; /* Ajuster la hauteur en fonction du contenu */
   display: flex;
   align-items: center;
+  text-align: center; /* Centrer le texte */
 `;
 
 const CardImage = styled.img`
@@ -26,6 +27,7 @@ const CardImage = styled.img`
   width: 150px;
   align-self: center;
   border-radius: 50%;
+  object-fit: cover; /* Éviter la déformation de l'image */
 `;
 
 const CardWrapper = styled.div`
@@ -36,8 +38,10 @@ const CardWrapper = styled.div`
   background-color: ${({ theme }) =>
     theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
   border-radius: 30px;
-  width: 300px;
-  height: 300px;
+  width: 300px; /* Largeur fixe pour toutes les cartes */
+  height: 400px; /* Hauteur fixe pour toutes les cartes */
+  margin: 0 auto;
+  margin-bottom: 24px;
   &:hover {
     cursor: pointer;
   }
