@@ -3,6 +3,7 @@ import Card from '../../components/Card';
 import colors from '../../utils/style/colors';
 import { Loader } from '../../utils/style/Atoms';
 import { useFetch, useTheme } from '../../utils/hooks';
+import { Link } from 'react-router-dom';
 
 const CardsContainer = styled.div`
   display: grid;
@@ -40,13 +41,10 @@ function Freelances() {
     `https://api-shiny-agency.vercel.app/freelances`,
   );
 
-  // Ici le "?" permet de s'assurer que data existe bien.
-  // Vous pouvez en apprendre davantage sur cette notation ici :
-  // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
   const freelancersList = data?.freelancersList;
 
   if (error) {
-    return <span>Oups il y a eu un problème</span>;
+    return <span>Il y a un problème</span>;
   }
 
   return (
@@ -61,13 +59,15 @@ function Freelances() {
         </LoaderWrapper>
       ) : (
         <CardsContainer>
-          {freelancersList.map((profile, index) => (
-            <Card
-              key={`${profile.name}-${index}`}
-              label={profile.job}
-              title={profile.name}
-              picture={profile.picture}
-            />
+          {freelancersList?.map((profile) => (
+            <Link key={`freelance-${profile.id}`} to={`/profile/${profile.id}`}>
+              <Card
+                label={profile.job}
+                title={profile.name}
+                picture={profile.picture}
+                theme={theme}
+              />
+            </Link>
           ))}
         </CardsContainer>
       )}
